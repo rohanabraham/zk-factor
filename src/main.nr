@@ -15,7 +15,7 @@ contract ZKFactor {
     };
 
     use crate::public_key_note::{PublicKeyNote, PUBLIC_KEY_NOTE_LEN};
-    use dep::field_note::field_note::{FieldNote, FIELD_NOTE_LEN};
+    use dep::value_note::value_note::{ValueNote, VALUE_NOTE_LEN};
 
     struct Point {
         x: i64,
@@ -33,8 +33,8 @@ contract ZKFactor {
         // docs:start:storage
         signing_public_key: PrivateImmutable<PublicKeyNote>,
         //reference_points: Map<Field, PrivateImmutable<FieldNote>>,
-        reference_points_x: Map<Field, PrivateMutable<FieldNote>>,
-        reference_points_y: Map<Field, PrivateMutable<FieldNote>>,       
+        reference_points_x: Map<Field, PrivateMutable<ValueNote>>,
+        reference_points_y: Map<Field, PrivateMutable<ValueNote>>,       
         //totp_secret: PrivateImmutable<FieldNote>,
         // docs:end:storage
     }
@@ -109,15 +109,15 @@ contract ZKFactor {
     #[aztec(private)]
      fn setReferencePoint( position: Field, x: Field, y: Field) {    
         // this = context.this_address(); 
-        let mut point_note_x = FieldNote::new(x);   
-        let mut point_note_y = FieldNote::new(y);   
+        let mut point_note_x = ValueNote::new(x, context.msg_sender());   
+        let mut point_note_y = ValueNote::new(y, context.msg_sender());   
         //storage.reference_points.at(position).initialize(&mut point_note, true);
-         storage.reference_points_x.at(position).initialize(&mut point_note_x, false);
-         storage.reference_points_y.at(position).initialize(&mut point_note_y, false);
+         storage.reference_points_x.at(position).initialize(&mut point_note_x, true);
+         storage.reference_points_y.at(position).initialize(&mut point_note_y, true);
      }
 
     
-    unconstrained fn getReferencePoint( position: Field) -> pub FieldNote {  
+    unconstrained fn getReferencePoint( position: Field) -> pub ValueNote {  
          storage.reference_points_x.at(position).view_note()
      }
 

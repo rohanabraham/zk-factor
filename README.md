@@ -79,6 +79,13 @@ Set Reference points to the contract
 ```bash
 aztec-cli send setReferencePoint --contract-artifact target/zk_factor-ZKFactor.json --contract-address $CONTRACT --args 0 4 6 --private-key $PRIVATE_KEY
 ```
+
+Get Reference points from the contract
+```bash
+aztec-cli send verifyReferencePoint --contract-artifact target/zk_factor-ZKFactor.json --contract-address $CONTRACT --args 0 4 6 --private-key $PRIVATE_KEY
+```
+
+
 ## Test
 
 ```bash
