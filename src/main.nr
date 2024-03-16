@@ -41,20 +41,6 @@ contract ZKFactor {
 
     global ACCOUNT_ACTIONS_STORAGE_SLOT = 2;
 
-    // Constructs the contract
-    // #[aztec(private)]
-    // #[aztec(initializer)]
-    // fn constructor(signing_pub_key_x: pub Field, signing_pub_key_y: pub Field/*, secret: Field*/) {
-    //     let this = context.this_address();
-    //     // docs:start:initialize
-    //     let mut pub_key_note = PublicKeyNote::new(signing_pub_key_x, signing_pub_key_y, this);
-    //     storage.signing_public_key.initialize(&mut pub_key_note, true);
-    //     // docs:end:initialize
-
-    //     //let mut note = FieldNote::new(secret);
-    //     //storage.totp_secret.initialize(&mut note, false); 
-    // }
-
      #[aztec(private)]
     fn constructor() {}
 
@@ -118,11 +104,7 @@ contract ZKFactor {
         true
     }
 
-    // #[aztec(public)]
-    // fn generate_totp()  {
-    //     std::sha512::digest([0x6b, 0x65, 0x62, 0x61, 0x62])
-    //     //true
-    // }
+
 
     #[aztec(private)]
      fn setReferencePoint( position: Field, x: Field, y: Field) {    
