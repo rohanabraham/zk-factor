@@ -117,14 +117,16 @@ contract ZKFactor {
      }
 
     
-     unconstrained fn getReferencePoint( position: Field) -> pub FieldNote {  
+    unconstrained fn getReferencePoint( position: Field) -> pub FieldNote {  
          storage.reference_points_x.at(position).view_note()
      }
 
-     #[aztec(public)]
-     fn verify() -> bool {
-        
-        true
+     #[aztec(private)]
+     fn verifyReferencePoint(position: Field, x: Field, y: Field)  {
+         let point_note_x = storage.reference_points_x.at(position).get_note(false);
+         let point_note_y = storage.reference_points_y.at(position).get_note(false);
+        assert(point_note_x.value == x);
+        assert(point_note_y.value == y);        
      }
 
     
