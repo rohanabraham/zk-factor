@@ -64,7 +64,15 @@ Public Key: 0x27c20118733174347b8082f578a7d8fb84b3ad38be293715eee8119ee5cd8a6d0d
 
 
 ```bash
-aztec-cli deploy path_to_file --args $ADMIN
+aztec-cli deploy target/zk_factor-ZKFactor.json --args $ADMIN --private-key $PRIVATE_KEY
+```
+You'll get an output like this
+Contract deployed at 0x14f5c48e6098e63d7873d1474660aa1ceda149f05075ecfa9c611c98b7a120e6
+
+Contract partial address 0x0a8fd8cc3797cfb1f6f6d6cf57b444f4a197dc63ee860a1dd47f967ba56cd2bf
+
+```bash
+CONTRACT="0x14f5c48e6098e63d7873d1474660aa1ceda149f05075ecfa9c611c98b7a120e6"
 ```
 
 ## Test
