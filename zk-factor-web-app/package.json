@@ -20,7 +20,9 @@
       "react-scripts": "5.0.1",
       "scatter-gl": "^0.0.13",
       "web-vitals": "^2.1.4",
-      "zod": "^3.22.4"
+      "zod": "^3.22.4",
+      "@aztec/accounts": "^0.28.1",
+      "@aztec/aztec.js": "^0.28.1"
   },
   "scripts": {
     "start": "react-scripts start",
