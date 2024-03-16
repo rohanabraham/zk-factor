@@ -75,6 +75,10 @@ Contract partial address 0x0a8fd8cc3797cfb1f6f6d6cf57b444f4a197dc63ee860a1dd47f9
 CONTRACT="0x14f5c48e6098e63d7873d1474660aa1ceda149f05075ecfa9c611c98b7a120e6"
 ```
 
+Set Reference points to the contract
+```bash
+aztec-cli send setReferencePoint --contract-artifact target/zk_factor-ZKFactor.json --contract-address $CONTRACT --args 0 4 6 --private-key $PRIVATE_KEY
+```
 ## Test
 
 ```bash
