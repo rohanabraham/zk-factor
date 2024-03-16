@@ -44,16 +44,16 @@ yarn codegen
 
 ## Deploy
 
-Add `ADMIN` to your environment. Get this ADMIN address from Docker
+Add `ADMIN` to your environment. Get an address from Docker
 
 ```bash
 ADMIN="0x08d13936ea0ab52f57e96b06644950e143c4fe08162cd84fff63bc9135ce4726"
 ```
 
-Add `PRIVATE_KEY` to your environment. Get this ADMIN address from Docker
+Add `PRIVATE_KEY` to your environment. Get this PRIVATE_KEY address from Docker
 
 ```bash
-ADMIN="0x2153536ff6628eee01cf4024889ff977a18d9fa61d0e414422f7681cf085c281"
+PRIVATE_KEY="0x2153536ff6628eee01cf4024889ff977a18d9fa61d0e414422f7681cf085c281"
 ```
 
 Initial Accounts:
