@@ -129,5 +129,19 @@ contract ZKFactor {
         assert(point_note_y.value == y);        
      }
 
+     #[aztec(private)]
+     fn verifySafeDistanceReferencePoint(position: Field, x: Field, y: Field)  {
+         let point_note_x = storage.reference_points_x.at(position).get_note(false);
+         let point_note_y = storage.reference_points_y.at(position).get_note(false);
+        assert(point_note_x.value == x);
+        assert(point_note_y.value == y);        
+     }
+
+    #[aztec(private)]
+    #[aztec(internal)]
+    fn calculateDistance(outer_hash: Field) {
+        context.push_new_nullifier(outer_hash, 0);
+    }
+
     
 }
